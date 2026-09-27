@@ -156,6 +156,12 @@
 							if (!href || href == '#' || href == '' || href == '#' + id)
 								return;
 
+							// Let the browser handle mailto links natively.
+								if (href.indexOf('mailto:') == 0) {
+									$this._hide();
+									return;
+								}
+
 							// Cancel original event.
 								event.preventDefault();
 								event.stopPropagation();
